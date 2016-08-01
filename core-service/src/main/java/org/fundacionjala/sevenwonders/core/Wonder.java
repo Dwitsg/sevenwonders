@@ -23,6 +23,12 @@ public class Wonder {
         this.stages = stages;
     }
 
+    public Wonder(String name, List<Stage> stages){
+        Preconditions.checkNotNull(stages, "The stages is null");
+        this.stages = stages;
+        this.name = name;
+    }
+
     public Effect getEffect() {
         return effect;
     }
