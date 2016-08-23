@@ -1,15 +1,13 @@
 <div class="login">
     <div class="top-image">
         <img class="image-title" ng-src="resources/images/logo.png" />
+
     </div>
     <div class="form">
         <div class="sw-box" name="form" novalidate>
-            <input class="sw-input" name="user" type="text" placeholder="Name" ng-model="user" required/>
-            <button  id="submit" class="sw-button" ng-disabled="form.user.$invalid" ng-click="$ctrl.doLogin(user)" type="submit">Login</button>
-            <div class="sw-title">
-                <h1>WELCOME</h1>
-                <h2>{{user}}</h2>
-            </div>
+            <input id="user" placeholder="Username" class="sw-input" name="user" type="text" ng-model="user" required/>
+            <input id="password" placeholder="Password" class="sw-input" name="user" type="text" ng-model="user" required/>
+            <button  id="submit" class="sw-button" ng-disabled="form.user.$invalid" ng-click="$ctrl.doLogin(user)" type="submit">Log in to 7Wonders</button>
         </div>
     </div>
 </div>

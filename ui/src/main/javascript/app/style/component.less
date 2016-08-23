@@ -1,24 +1,33 @@
 @import "global.less";
 
+
 .sw-box {
-  background-color: @box;
-  border-radius: 12px;
-  border: 1px solid white;
-  opacity: 0.6;
-  overflow: hidden;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label.sw-label{
+    color: white;
+    font-family: @font_family;
+}
+
+button.sw-button, input.sw-input{
+  box-sizing: border-box;
+  height: 36px;
+  margin-top: 12px;
 }
 
 button.sw-button {
-  border-radius: 6px;
-  background: @background_button;
-  border: 1px solid @color_component;
-  color: @color_letters;
+  color: #ffffff;
+  background: #FBBD08;
+  border: 1px solid #FBBD08;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  border-radius: 2px;
   cursor: pointer;
-  font-family: @font_family;
-  font-size: 1.2rem;
-  font-weight: 200;
-  padding: 8px 30px;
+  font-weight: 900;
+  font-size: 1.1em;
+  padding-right: 12px;
+  padding-left: 12px;
   &:focus {
     outline: none;
   }
@@ -29,26 +38,23 @@ button.sw-button {
 }
 
 input.sw-input {
-  background: @background_input;
-  border: 1px solid @color_component;
-  border-radius: 6px;
+  background: rgba(0,0,0,0.5);
+  border: 0.5px solid #8B8B8B;
+  border-radius: 2px;
   color: @color_component;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  &::-webkit-input-placeholder {
-    color: @color_component;
-    font-family: @font_family;
-    font-size: 1.2rem;
-    font-weight: 200;
-    line-height: 1.3rem;
+  padding-left: 12px;
+  font-weight: 900;
+  &::-webkit-input-placeholder{
+    color: white;
+    opacity: 0.4;
+    font-weight: 900;
   }
   &:focus {
-    border: 1px solid white;
+    border: 1px solid #AA9839;
     color: @color_letters;
     outline: none;
   }
-  &:hover {
-    border: 1px solid white;
+  &:not(:focus):hover {
+    border: 1px solid #B2B2B2;
   }
 }
