@@ -1,60 +1,43 @@
 @import "global.less";
 
-
-.sw-box {
-  display: flex;
-  flex-direction: column;
-}
-
 label.sw-label{
-    color: white;
+    color: @color_letters;
     font-family: @font_family;
 }
 
 button.sw-button, input.sw-input{
+  color: #FFFFFF;
   box-sizing: border-box;
   height: 36px;
   margin-top: 12px;
+  border-radius: 2px;
+  border: 1px solid #8B8B8B;
 }
 
 button.sw-button {
-  color: #ffffff;
-  background: #FBBD08;
-  border: 1px solid #FBBD08;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  border-radius: 2px;
-  cursor: pointer;
-  font-weight: 900;
   font-size: 1.1em;
-  padding-right: 12px;
-  padding-left: 12px;
-  &:focus {
-    outline: none;
+  cursor: pointer;
+  font-weight: 200;
+  &:active {
+    border-radius: 0px;
+    border: 0px;
+    box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.2);
   }
   &:hover {
-    color: @color_letters;
-    border: 1px solid white;
+    -webkit-filter: contrast(120%);
+    -ms-filter: contrast(120%);
   }
 }
 
 input.sw-input {
   background: rgba(0,0,0,0.5);
-  border: 0.5px solid #8B8B8B;
-  border-radius: 2px;
-  color: @color_component;
   padding-left: 12px;
-  font-weight: 900;
+  font-weight: 600;
   &::-webkit-input-placeholder{
-    color: white;
+    color: @color_letters;
     opacity: 0.4;
-    font-weight: 900;
   }
   &:focus {
     border: 1px solid #AA9839;
-    color: @color_letters;
-    outline: none;
-  }
-  &:not(:focus):hover {
-    border: 1px solid #B2B2B2;
   }
 }
