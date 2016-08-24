@@ -13,8 +13,12 @@ angular.module("sevenWonder")
                 .otherwise('/login');
         }
     ])
-    .config(['RestangularProvider', function(RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://demo1701066.mockable.io');
+    .config(['RestangularProvider', function (RestangularProvider) {
+        RestangularProvider.setBaseUrl('http://localhost:9999');
+        RestangularProvider.setDefaultHeaders({
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        });
     }]);
 
 /*  .config(function ($stateProvider, $urlRouterProvider) {

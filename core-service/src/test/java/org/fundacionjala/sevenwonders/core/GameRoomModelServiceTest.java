@@ -23,7 +23,7 @@ public class GameRoomModelServiceTest {
         GameRoomModel gameRoomModel = new GameRoomModel();
         PlayerModel player = new PlayerModel();
 
-        player.setName("Juan");
+        player.setUserName("Juan");
         gameRoomModel.setMaxPlayers(3);
         gameRoomModel.setOwner(player);
 
@@ -37,7 +37,7 @@ public class GameRoomModelServiceTest {
         GameRoomService gameRoomService = new GameRoomService();
         GameRoomModel gameRoomModel = new GameRoomModel();
         PlayerModel player = new PlayerModel();
-        player.setName("Juan");
+        player.setUserName("Juan");
 
         gameRoomModel.setMaxPlayers(3);
         gameRoomModel.setOwner(player);
@@ -45,7 +45,7 @@ public class GameRoomModelServiceTest {
         gameRoomService.createGameRoom(gameRoomModel);
 
         PlayerModel playerOne = new PlayerModel();
-        playerOne.setName("Dwits");
+        playerOne.setUserName("Dwits");
         playerOne.setRoomId(1);
 
         gameRoomService.addPlayer(playerOne);
@@ -58,7 +58,7 @@ public class GameRoomModelServiceTest {
         GameRoomService gameRoomService = new GameRoomService();
         GameRoomModel gameRoomModel = new GameRoomModel();
         PlayerModel player = new PlayerModel();
-        player.setName("Juan");
+        player.setUserName("Juan");
 
         gameRoomModel.setMaxPlayers(3);
         gameRoomModel.setOwner(player);
@@ -66,7 +66,7 @@ public class GameRoomModelServiceTest {
         gameRoomService.createGameRoom(gameRoomModel);
 
         PlayerModel playerOne = new PlayerModel();
-        playerOne.setName("Dwits");
+        playerOne.setUserName("Dwits");
         playerOne.setRoomId(1);
 
         gameRoomService.addPlayer(playerOne);
@@ -74,7 +74,7 @@ public class GameRoomModelServiceTest {
         Assert.assertEquals(0, gameRoomService.getGameService().getGames().size());
 
         PlayerModel playerTwo = new PlayerModel();
-        playerTwo.setName("Lucero");
+        playerTwo.setUserName("Lucero");
         playerTwo.setRoomId(1);
 
         gameRoomService.addPlayer(playerTwo);
