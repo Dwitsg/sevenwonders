@@ -9,7 +9,7 @@ component('login', {
 
             Auth.login(user)
                 .then(function(data) {
-                    console.log("Success:" + data);
+                    console.log("Success:" + data.userName);
                     $location.path('/lobby');
                 })
                 .catch(function(data) {
