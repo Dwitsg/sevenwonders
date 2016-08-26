@@ -61,7 +61,7 @@ gulp.task('lint', function() {
 
 gulp.task('buildIndex', function() {
     var bower = gulp.src(bowerFiles(), { read: false });
-    var css = gulp.src(['src/main/javascript/app/**/*.css', '!src/main/javascript/app/{lib,lib/**}'], { read: false });
+    var css = gulp.src(['src/main/javascript/app/**/*.css', '!src/main/javascript/app/{lib,lib/**}' , '!src/main/javascript/app/style/*.css'], { read: false });
     var angularjs = gulp.src(['src/main/javascript/app/**/*.js',
         '!src/main/javascript/app/{lib,lib/**}'
     ]).pipe(angularFilesort());
