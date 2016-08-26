@@ -27,14 +27,6 @@ public class GameRoomRoute extends SpringRouteBuilder {
     @Override
     public void configure() throws Exception {
 
-
-        restConfiguration().component("jetty")
-                .bindingMode(RestBindingMode.json)
-                .dataFormatProperty("prettyPrint", "true")
-                .enableCORS(true)
-                .port(9999);
-
-
         rest("/gameRoom").description("Lobby rest service")
                 .consumes("application/json").produces("application/json")
 
@@ -48,12 +40,6 @@ public class GameRoomRoute extends SpringRouteBuilder {
                 .to("bean:gameRoomService?method=getPlayers(${header.id})")
 
                 .get("/{id}").description("Get a game room").type(GameRoom.class)
-                .to("bean:gameRoomService?method=getGameRoom(${header.id})")
-
-                .verb("options").route()
-                .setHeader("Access-Control-Allow-Origin", constant("*"))
-                .setHeader("Access-Control-Allow-Methods", constant("GET, HEAD, POST, PUT, DELETE, OPTIONS"))
-                .setHeader("Access-Control-Allow-Headers", constant("Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"))
-                .setHeader("Allow", constant("GET, HEAD, POST, PUT, DELETE, OPTIONS"));
+                .to("bean:gameRoomService?method=getGameRoom(${header.id})");
     }
 }
