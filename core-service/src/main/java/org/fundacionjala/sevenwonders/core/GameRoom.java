@@ -6,6 +6,7 @@ package org.fundacionjala.sevenwonders.core;
 
 import com.google.common.base.Preconditions;
 import org.fundacionjala.sevenwonders.core.rest.PlayerModel;
+import org.fundacionjala.sevenwonders.core.rest.WonderModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +20,20 @@ import java.util.Random;
  */
 public class GameRoom {
     public static final int NUMBER_OF_AGES = 3;
+    public static final String DEFAULT_SIDE = "a";
 
     private WonderProvider wonderProvider;
     private CardProvider cardProvider;
     private List<PlayerModel> players;
     private int maxPlayers;
+    private String name;
 
-    public GameRoom(int maxPlayers) {
+    public GameRoom(String name, int maxPlayers) {
         wonderProvider = new WonderProvider();
         cardProvider = new CardProvider();
         players = new ArrayList<>();
         this.maxPlayers = maxPlayers;
+        this.name = name;
     }
 
     public int getMaxPlayers() {
@@ -39,7 +43,7 @@ public class GameRoom {
     /**
      * Gets a list of rest players
      *
-     * @return list of {@link org.fundacionjala.sevenwonders.core.rest.Player}
+     * @return list of {@link org.fundacionjala.sevenwonders.core.rest.PlayerModel}
      */
     public List<PlayerModel> getPlayers(){
         return players;
@@ -52,6 +56,7 @@ public class GameRoom {
      */
     public void addPlayer(PlayerModel player) {
         Preconditions.checkArgument(maxPlayers != players.size());
+        Preconditions.checkNotNull(player);
         this.players.add(player);
     }
 
@@ -68,7 +73,11 @@ public class GameRoom {
             StoragePoint storagePoint = new StoragePoint();
             Storage storage = new Storage();
             City city = new City(currentWonder, storagePoint, storage);
-            Player player = new Player(item.getName(), city);
+            Player player = new Player(item.getUserName(), city);
+            WonderModel wonderModel = new WonderModel();
+            wonderModel.setCurrentSide(DEFAULT_SIDE);
+            wonderModel.setCityName(currentWonder.getName());
+            item.setWonderModel(wonderModel);
             gamePlayers.add(player);
         });
 
@@ -87,5 +96,9 @@ public class GameRoom {
         return builder.setPlayers(initPlayers)
                       .setDeck(new Deck(cardProvider.getDefault()), NUMBER_OF_AGES)
                       .createGame();
+    }
+
+    public String getName() {
+        return name;
     }
 }

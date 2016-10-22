@@ -3,11 +3,10 @@ angular.module('sevenWonder', [
     'ngRoute',
     'restangular',
     'ngCookies',
+    'ngWebSocket',
     'sevenWonder.login',
     'sevenWonder.lobby',
-    'sevenWonder.gameroom'
-    /*'sevenWonder.createGame',
-    'sevenWonder.joinGame',
-    'sevenWonder.lobbyGame',
-    'sevenWonder.chooseWonder'*/
+    'sevenWonder.gameroom',
+    'sevenWonder.choosewonder',
+    'sevenWonder.gameboard'
 ]);
